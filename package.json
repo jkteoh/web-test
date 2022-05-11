@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@moneylion/mlds-web": "^2.0.1",
+    "@mui/material": "^5.7.0",
+    "@mui/styled-engine-sc": "^5.7.0",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",
@@ -20,10 +21,9 @@
     "web-vitals": "^2.1.0"
   },
   "scripts": {
-    "start": "yarn assets && react-scripts start",
-    "build": "yarn assets && react-scripts build",
-    "assets": "ncp node_modules/@moneylion/mlds-web/assets public/assets",
-    "test": "react-scripts test",
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -45,6 +45,8 @@
     ]
   },
   "devDependencies": {
-    "ncp": "^2.0.0"
+    "@craco/craco": "^6.4.3",
+    "@types/styled-components": "^5.1.25",
+    "craco-alias": "^3.0.1"
   }
 }

@@ -1,25 +1,13 @@
-import { Button, Checkbox, Heading, SEMANTIC_COLOR } from "@moneylion/mlds-web";
-import styled from "styled-components";
-import { InputWrapper, Layout } from "../components/Layout";
-import Progress from "../components/Progress";
-
-const CheckboxWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 8px 0;
-  & a {
-    display: block;
-    color: ${SEMANTIC_COLOR.CONTENT_ACCENT};
-    text-decoration: none;
-    font-weight: 400;
-  }
-`
-
-const InputBlock = styled.div`
-  display: flex;
-  justify-content: center;
-`
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Checkbox from "@mui/material/Checkbox";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import FormGroup from "@mui/material/FormGroup";
+import LinearProgress from "@mui/material/LinearProgress";
+import Link from "@mui/material/Link";
+import Stack from "@mui/material/Stack";
+import Typography from "@mui/material/Typography";
+import { Layout } from "../components/Layout";
 
 const Agreement = () => {
   const processSubmit = () => {
@@ -28,27 +16,38 @@ const Agreement = () => {
 
   return (
     <div>
-      <Progress step={3} />
+      <Box>
+        <Typography variant="h6" textAlign="center" marginY={2}>MoneyLion</Typography>
+        <LinearProgress variant="determinate" value={100} />
+      </Box>
       <Layout>
-        <Heading className='text-center'>One Last Step!</Heading>
-        <InputBlock>
-          <InputWrapper>
-            <div>I agree to</div>
-            <CheckboxWrapper>
-              <Checkbox />
-              <label><a href="https://cdn.moneylion.com/onboarding/Consent+to+ESIGN+and+Electronic+Communications.pdf">Electronic Transaction Consent</a></label>
-            </CheckboxWrapper>
-            <CheckboxWrapper>
-              <Checkbox />
-              <label>and the following agreements
-                <a href="https://www.moneylion.com/privacy-notification/">Privacy Notice</a>
-                <a href="https://www.moneylion.com/terms-and-conditions/">Terms and Conditions</a>
-                <a href="https://network.moneylion.com/membership-agreement">Membership Agreement</a>
-              </label>
-            </CheckboxWrapper>
-          </InputWrapper>
-        </InputBlock>
-        <div className="text-center"><Button onClick={processSubmit}>Submit</Button></div>
+        <Typography variant="h2" textAlign={'center'} gutterBottom >One Last Step!</Typography>
+        <Box
+          display="flex"
+          alignItems="center"
+          flexDirection="column"
+        >
+          <Box
+            sx={{ m: 1 }}
+          >
+            <Typography variant="body1">I agree to</Typography>
+            <FormGroup>
+              <FormControlLabel control={<Checkbox />} label={
+                <Link underline="none" href="https://cdn.moneylion.com/onboarding/Consent+to+ESIGN+and+Electronic+Communications.pdf">Electronic Transaction Consent</Link>
+              } />
+              <FormControlLabel control={<Checkbox />} label={
+                <Typography variant="body1">and the following agreements
+                  <Stack spacing={1}>
+                    <Link underline="none" href="https://www.moneylion.com/privacy-notification/">Privacy Notice</Link>
+                    <Link underline="none" href="https://www.moneylion.com/terms-and-conditions/">Terms and Conditions</Link>
+                    <Link underline="none" href="https://network.moneylion.com/membership-agreement">Membership Agreement</Link>
+                  </Stack>
+                </Typography>
+              } />
+            </FormGroup>
+          </Box>
+          <Button variant="contained" onClick={processSubmit}>Submit</Button>
+        </Box>
       </Layout>
     </div>
   )

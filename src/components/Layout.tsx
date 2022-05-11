@@ -5,10 +5,3 @@ export const Layout = styled.div`
   padding: 20px 0;
   width: 800px;
 `
-
-export const InputWrapper = styled.div`
-padding: 16px;
-& >div {
-  margin-bottom: 8px;
-}
-`

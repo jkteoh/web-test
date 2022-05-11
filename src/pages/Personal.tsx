@@ -1,8 +1,11 @@
-import { Button, Heading, Input } from "@moneylion/mlds-web";
 import { ChangeEvent } from "react";
 import { useNavigate } from "react-router-dom";
-import { InputWrapper, Layout } from "../components/Layout";
-import Progress from "../components/Progress";
+import { Layout } from "../components/Layout";
+import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
+import Typography from "@mui/material/Typography"
+import Button from "@mui/material/Button";
+import LinearProgress from "@mui/material/LinearProgress";
 
 const Personal = () => {
   const navigate = useNavigate()
@@ -17,31 +20,39 @@ const Personal = () => {
 
   return (
     <div>
-      <Progress step={1} />
+      <Box>
+        <Typography variant="h6" textAlign="center" marginY={2}>MoneyLion</Typography>
+        <LinearProgress variant="determinate" value={50} />
+      </Box>
       <Layout>
-        <Heading className='text-center'>Create Your Account</Heading>
-        <InputWrapper>
-          <Input
-            label="First Name"
-            value=""
-            onChange={foo}
-          ></Input>
-          <Input
-            label="Last Name"
-            value=""
-            onChange={foo}
-          ></Input>
-          <Input
-            label="Email"
+        <Typography variant="h2"  textAlign={'center'} gutterBottom>Create Your Account</Typography>
+        <Box
+          display="flex"
+          flexDirection="column"
+          sx={{
+            '& .MuiTextField-root': { m: 1 },
+          }}
+        >
+          <TextField 
+            required 
+            label="First Name" 
+          />
+          <TextField 
+            required 
+            label="Last Name" 
+          />
+          <TextField 
+            required 
+            label="Email" 
             type="email"
-            rules={[
-              (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) || 'Email Not Valid'
-            ]}
-            value=""
-            onChange={foo}
-          ></Input>
-          <div className="text-center"><Button onClick={processClick}>Next</Button></div>
-        </InputWrapper>
+          />
+        </Box>
+        <Box
+          display="flex"
+          justifyContent="center"
+        >
+          <Button variant="contained" onClick={processClick}>Next</Button>
+        </Box>
       </Layout>
     </div>
   )

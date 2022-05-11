@@ -1,7 +1,10 @@
-import { Button, Heading, Input } from "@moneylion/mlds-web";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import LinearProgress from "@mui/material/LinearProgress";
+import TextField from "@mui/material/TextField";
+import Typography from "@mui/material/Typography";
 import { useNavigate } from "react-router-dom";
-import { InputWrapper, Layout } from "../components/Layout";
-import Progress from "../components/Progress";
+import { Layout } from "../components/Layout";
 
 const DOB = () => {
   const navigate = useNavigate()
@@ -12,17 +15,31 @@ const DOB = () => {
 
   return (
     <div>
-      <Progress step={2} />
+      <Box>
+        <Typography variant="h6" textAlign="center" marginY={2}>MoneyLion</Typography>
+        <LinearProgress variant="determinate" value={75} />
+      </Box>
       <Layout>
-        <Heading className='text-center'>What's your date of birth?</Heading>
-        <InputWrapper>
-          <Input
+        <Typography variant="h2" textAlign={'center'} gutterBottom>What's your date of birth?</Typography>
+        <Box
+          display="flex"
+          flexDirection="column"
+          sx={{
+            '& .MuiTextField-root': { m: 1 },
+          }}
+        >
+          <TextField 
+            required 
             label="DOB"
-            type="date"
-            value=""
-          ></Input>
-          <div className="text-center"><Button onClick={processClick}>Next</Button></div>
-        </InputWrapper>
+            type="date" 
+          />
+        </Box>
+        <Box
+          display="flex"
+          justifyContent="center"
+        >
+          <Button variant="contained" onClick={processClick}>Next</Button>
+        </Box>
       </Layout>
     </div>
   )
