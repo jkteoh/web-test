@@ -3,6 +3,7 @@ import Button from "@mui/material/Button";
 import LinearProgress from "@mui/material/LinearProgress";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Layout } from "../components/Layout";
 
@@ -11,6 +12,10 @@ const DOB = () => {
 
   const processClick = () => {
     navigate("/agreement")
+  }
+
+  const handleChange = (e:React.ChangeEvent<HTMLInputElement>) => {
+    console.log({[e.target.name]: e.target.value})
   }
 
   return (
@@ -32,11 +37,14 @@ const DOB = () => {
             required 
             label="DOB"
             type="date" 
+            name="dob"
+            onChange={handleChange}
           />
         </Box>
         <Box
           display="flex"
           justifyContent="center"
+          mt={2}
         >
           <Button variant="contained" onClick={processClick}>Next</Button>
         </Box>

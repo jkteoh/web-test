@@ -3,9 +3,11 @@
 This project is built with ReactJs v18 and React Router v6. It contains 4 pages, which is a sign up flow.
 Reference: https://www.figma.com/file/awHuIluCer7SQnWUCBTxPy/onboarding-test?node-id=0%3A1
 
+Language: Typescript
+
 You're required to complete the following **tasks** within 30min.
 
-1. Collect data from each pages and store it using state management.
+1. Collect data from each pages and store it using state management (at your choice).
 2. To allow users to resume to last page they visited after drop off.
 3. Send collected data on **Agreement Screen** to
 ```

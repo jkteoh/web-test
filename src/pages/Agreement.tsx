@@ -14,6 +14,10 @@ const Agreement = () => {
 
   }
 
+  const handleChange = (e:React.ChangeEvent<HTMLInputElement>) => {
+    console.log({[e.target.name]: e.target.checked})
+  }
+
   return (
     <div>
       <Box>
@@ -32,18 +36,34 @@ const Agreement = () => {
           >
             <Typography variant="body1">I agree to</Typography>
             <FormGroup>
-              <FormControlLabel control={<Checkbox />} label={
-                <Link underline="none" href="https://cdn.moneylion.com/onboarding/Consent+to+ESIGN+and+Electronic+Communications.pdf">Electronic Transaction Consent</Link>
-              } />
-              <FormControlLabel control={<Checkbox />} label={
-                <Typography variant="body1">and the following agreements
-                  <Stack spacing={1}>
-                    <Link underline="none" href="https://www.moneylion.com/privacy-notification/">Privacy Notice</Link>
-                    <Link underline="none" href="https://www.moneylion.com/terms-and-conditions/">Terms and Conditions</Link>
-                    <Link underline="none" href="https://network.moneylion.com/membership-agreement">Membership Agreement</Link>
-                  </Stack>
-                </Typography>
-              } />
+              <FormControlLabel 
+                control={
+                  <Checkbox 
+                    name="agreement1" 
+                    onChange={handleChange} 
+                  />
+                } 
+                label={
+                  <Link underline="none" href="https://cdn.moneylion.com/onboarding/Consent+to+ESIGN+and+Electronic+Communications.pdf">Electronic Transaction Consent</Link>
+                } 
+              />
+              <FormControlLabel 
+                control={
+                  <Checkbox 
+                    name="agreement2" 
+                    onChange={handleChange} 
+                  />
+                } 
+                label={
+                  <Typography variant="body1" component="div">and the following agreements
+                    <Stack spacing={1}>
+                      <Link underline="none" href="https://www.moneylion.com/privacy-notification/">Privacy Notice</Link>
+                      <Link underline="none" href="https://www.moneylion.com/terms-and-conditions/">Terms and Conditions</Link>
+                      <Link underline="none" href="https://network.moneylion.com/membership-agreement">Membership Agreement</Link>
+                    </Stack>
+                  </Typography>
+                } 
+              />
             </FormGroup>
           </Box>
           <Button variant="contained" onClick={processSubmit}>Submit</Button>

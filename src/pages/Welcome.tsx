@@ -17,6 +17,7 @@ const Welcome = () =>
       <Box
         display='flex'
         justifyContent='center'
+        mt={2}
       >
         <Link style={{'textDecoration': 'none'}} to="/personal">
           <Button variant='contained'>Apply Now</Button>
